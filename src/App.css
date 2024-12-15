@@ -1,0 +1,79 @@
+.memory-game {
+  width: 70vw;
+  height: 100vh;
+  margin: auto;
+}
+
+.memory-game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
+  height: 10vh;
+}
+
+.memory-game-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: antiquewhite;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  /* 
+  
+  transform: rotateY(0deg);
+ 
+  perspective: 1000px; */
+}
+
+.front {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  background-color: lightcoral;
+  backface-visibility: hidden;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: lightgoldenrodyellow;
+  font-size: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card[data-toggled="true"] {
+  transform: rotateY(180deg);
+}
+
+.card[data-active="true"] {
+  transform: rotateY(180deg);
+}
+
+.card[data-disabled-all="true"],
+.card[data-diabled="true"] {
+  pointer-events: none;
+}
